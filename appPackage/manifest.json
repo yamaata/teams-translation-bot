@@ -1,0 +1,109 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.9/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.9",
+  "version": "1.0.0",
+  "id": "33bf27fe-7c02-4cce-acb2-f7271b489109",
+  "packageName": "com.microsoft.teams.extension",
+  "developer": {
+    "name": "Yamada System",
+    "websiteUrl": "https://localhost:3000",
+    "privacyUrl": "https://localhost:3000/privacy",
+    "termsOfUseUrl": "https://localhost:3000/termsofuse"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "translation-bot",
+    "full": ""
+  },
+  "description": {
+    "short": "翻訳アプリ",
+    "full": "Teamsメッセージを各国の言語に翻訳するアプリ"
+  },
+  "accentColor": "#FFFFFF",
+  "composeExtensions": [
+    {
+      "botId": "b06ebc8b-e894-4a91-8238-4c981cf33365",
+      "canUpdateConfiguration": true,
+      "commands": [
+        {
+          "id": "translateMessage",
+          "type": "query",
+          "title": "メッセージを翻訳",
+          "description": "指定したメッセージを各国の言語に翻訳します",
+          "initialRun": true,
+          "fetchTask": false,
+          "context": [
+            "message"
+          ],
+          "parameters": [
+            {
+              "name": "english",
+              "title": "英語",
+              "description": "翻訳する",
+              "inputType": "toggle"
+            },
+            {
+              "name": "vietnamese",
+              "title": "ベトナム語",
+              "description": "翻訳する",
+              "inputType": "toggle"
+            },
+            {
+              "name": "filipino",
+              "title": "フィリピン語",
+              "description": "翻訳する",
+              "inputType": "toggle"
+            }
+          ]
+        },
+        {
+          "id": "createMessage",
+          "type": "action",
+          "title": "メッセージを翻訳",
+          "description": "入力したメッセージを各国の言語に翻訳します",
+          "initialRun": true,
+          "fetchTask": false,
+          "context": [
+            "compose"
+          ],
+          "parameters": [
+            {
+              "name": "text",
+              "title": "翻訳する文章",
+              "description": "翻訳する文章を入力してください",
+              "inputType": "text"
+            },
+            {
+              "name": "english",
+              "title": "英語",
+              "description": "翻訳する",
+              "inputType": "toggle"
+            },
+            {
+              "name": "vietnamese",
+              "title": "ベトナム語",
+              "description": "翻訳する",
+              "inputType": "toggle"
+            },
+            {
+              "name": "filipino",
+              "title": "フィリピン語",
+              "description": "翻訳する",
+              "inputType": "toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": [
+    "localhost:3000"
+  ]
+}
